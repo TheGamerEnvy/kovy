@@ -95,34 +95,57 @@
     <div class="container">
         <h2>Komik Terbaru</h2>
         <div class="grid-container">
+            <!-- Komik 1 -->
             <div class="comic">
                 <img src="000a.jpg" alt="Komik 1">
                 <h3><a href="javascript:void(0);" onclick="showKomik('komik1')">Judul Komik 1</a></h3>
             </div>
+            <!-- Komik 2 -->
             <div class="comic">
                 <img src="000b.jpg" alt="Komik 2">
                 <h3><a href="javascript:void(0);" onclick="showKomik('komik2')">Judul Komik 2</a></h3>
             </div>
+            <!-- Komik 3 -->
             <div class="comic">
                 <img src="000c.jpg" alt="Komik 3">
                 <h3><a href="javascript:void(0);" onclick="showKomik('komik3')">Judul Komik 3</a></h3>
             </div>
+            <!-- Komik 4 -->
             <div class="comic">
                 <img src="002.jpg" alt="Komik 4">
                 <h3><a href="javascript:void(0);" onclick="showKomik('komik4')">Judul Komik 4</a></h3>
             </div>
+            <!-- Komik 5 -->
+            <div class="comic">
+                <img src="003.jpg" alt="Komik 5">
+                <h3><a href="javascript:void(0);" onclick="showKomik('komik5')">Judul Komik 5</a></h3>
+            </div>
         </div>
+
+        <!-- Episode 1 Komik 1 -->
         <div id="komik1" class="komik-content" style="display:none;">
+            <h3>Episode 1 - Komik 1</h3>
             <img src="000a.jpg" alt="Komik 1 Besar" />
         </div>
+        <!-- Episode 1 Komik 2 -->
         <div id="komik2" class="komik-content" style="display:none;">
+            <h3>Episode 1 - Komik 2</h3>
             <img src="000b.jpg" alt="Komik 2 Besar" />
         </div>
+        <!-- Episode 1 Komik 3 -->
         <div id="komik3" class="komik-content" style="display:none;">
+            <h3>Episode 1 - Komik 3</h3>
             <img src="000c.jpg" alt="Komik 3 Besar" />
         </div>
+        <!-- Episode 1 Komik 4 -->
         <div id="komik4" class="komik-content" style="display:none;">
+            <h3>Episode 1 - Komik 4</h3>
             <img src="002.jpg" alt="Komik 4 Besar" />
+        </div>
+        <!-- Episode 1 Komik 5 -->
+        <div id="komik5" class="komik-content" style="display:none;">
+            <h3>Episode 1 - Komik 5</h3>
+            <img src="003.jpg" alt="Komik 5 Besar" />
         </div>
     </div>
     <footer>
@@ -130,15 +153,13 @@
     </footer>
 
     <script>
-        // JavaScript langsung disini
+        // JavaScript untuk menampilkan komik
         function showKomik(komikId) {
-            // Sembunyikan semua komik
             var komikContents = document.querySelectorAll('.komik-content');
             komikContents.forEach(function(komik) {
                 komik.style.display = 'none';
             });
 
-            // Tampilkan komik yang dipilih
             var selectedKomik = document.getElementById(komikId);
             if (selectedKomik) {
                 selectedKomik.style.display = 'block';
