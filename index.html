@@ -1,60 +1,60 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komik Envy</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-    <header>
-        <h1>Komik Envy</h1>
-    </header>
-    <nav>
-        <a href="#">Beranda</a>
-        <a href="#">Daftar Komik</a>
-        <a href="#">Tentang</a>
-        <a href="#">Kontak</a>
-    </nav>
-    <div class="container">
-        <h2>Komik Terbaru</h2>
-        <div class="grid-container">
-            <div class="comic">
-                <img src="000a.jpg" alt="Komik 1" onclick="showKomik('komik1')">
-                <h3><a href="javascript:void(0);" onclick="showKomik('komik1')">Judul Komik 1</a></h3>
-            </div>
-            <div class="comic">
-                <img src="000b.jpg" alt="Komik 2" onclick="showKomik('komik2')">
-                <h3><a href="javascript:void(0);" onclick="showKomik('komik2')">Judul Komik 2</a></h3>
-            </div>
-            <div class="comic">
-                <img src="000c.jpg" alt="Komik 3" onclick="showKomik('komik3')">
-                <h3><a href="javascript:void(0);" onclick="showKomik('komik3')">Judul Komik 3</a></h3>
-            </div>
-            <div class="comic">
-                <img src="002.jpg" alt="Komik 4" onclick="showKomik('komik4')">
-                <h3><a href="javascript:void(0);" onclick="showKomik('komik4')">Judul Komik 4</a></h3>
-            </div>
-        </div>
+import React, { useState } from "react";
+import "./style.css";
 
-        <!-- Menambahkan tampilan komik besar -->
-        <div id="komik1" class="komik-content" style="display:none;">
-            <img src="000a.jpg" alt="Komik 1 Besar" />
+const comics = [
+  { id: "komik1", title: "Judul Komik 1", image: "000a.jpg" },
+  { id: "komik2", title: "Judul Komik 2", image: "000b.jpg" },
+  { id: "komik3", title: "Judul Komik 3", image: "000c.jpg" },
+  { id: "komik4", title: "Judul Komik 4", image: "002.jpg" }
+];
+
+export default function App() {
+  const [selectedComic, setSelectedComic] = useState(null);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="bg-blue-500 text-white p-4 text-center text-xl font-bold">
+        Komik Envy
+      </header>
+      <nav className="bg-gray-200 p-4 flex justify-center space-x-4">
+        <a href="#" className="text-blue-600 hover:underline">Beranda</a>
+        <a href="#" className="text-blue-600 hover:underline">Daftar Komik</a>
+        <a href="#" className="text-blue-600 hover:underline">Tentang</a>
+        <a href="#" className="text-blue-600 hover:underline">Kontak</a>
+      </nav>
+      <main className="flex-1 p-4">
+        <h2 className="text-2xl font-bold">Komik Terbaru</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+          {comics.map((comic) => (
+            <div key={comic.id} className="text-center">
+              <img
+                src={comic.image}
+                alt={comic.title}
+                className="cursor-pointer w-full"
+                onClick={() => setSelectedComic(comic)}
+              />
+              <h3>
+                <a
+                  href="javascript:void(0);"
+                  className="text-blue-600 hover:underline"
+                  onClick={() => setSelectedComic(comic)}
+                >
+                  {comic.title}
+                </a>
+              </h3>
+            </div>
+          ))}
         </div>
-        <div id="komik2" class="komik-content" style="display:none;">
-            <img src="000b.jpg" alt="Komik 2 Besar" />
-        </div>
-        <div id="komik3" class="komik-content" style="display:none;">
-            <img src="000c.jpg" alt="Komik 3 Besar" />
-        </div>
-        <div id="komik4" class="komik-content" style="display:none;">
-            <img src="002.jpg" alt="Komik 4 Besar" />
-        </div>
+        {selectedComic && (
+          <div className="mt-8 text-center">
+            <h2 className="text-xl font-bold">{selectedComic.title}</h2>
+            <img src={selectedComic.image} alt={selectedComic.title} className="mx-auto max-w-lg" />
+          </div>
+        )}
+      </main>
+      <footer className="bg-gray-800 text-white p-4 text-center mt-auto">
+        &copy; 2025 Komik Envy - Semua Hak Dilindungi
+      </footer>
     </div>
-    <footer>
-        <p>&copy; 2025 Komik Envy - Semua Hak Dilindungi</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+  );
+}
