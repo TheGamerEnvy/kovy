@@ -116,7 +116,7 @@
             <!-- Komik 1 -->
             <div class="comic">
                 <img src="000 cover vol 01.jpg" alt="Komik 1">
-                <h3><a href="javascript:void(0);" onclick="showKomik('komik1')">Judul Komik 1</a></h3>
+                <h3><a href="javascript:void(0);" onclick="showKomik('"komik1_episode1"')">Judul Komik 1</a></h3>
             </div>
             <!-- Komik 2 -->
             <div class="comic">
@@ -141,7 +141,7 @@
         </div>
 
         <!-- Episode 1 Komik 1 -->
-        <div id="komik1" class="komik-content" style="display:none;">
+        <div id="komik1_episode1" class="komik-content" style="display:none;">
             <h3>Episode 1 - Komik 1</h3>
             <img src="000a.jpg" alt="Komik 1 Besar" />
             <img src="000b.jpg" alt="Komik 1 Besar" />
@@ -175,13 +175,13 @@
             <img src="028.jpg" alt="Komik 1 Besar" />  
 
             <div class="navigation">
-                <button id="prevBtn" onclick="changeEpisode(-1)" disabled>Previous</button>
-                <button id="nextBtn" onclick="changeEpisode(1)">Next</button>
+                <button id="prevBtn" onclick="changeEpisode('komik1', -1)" disabled>Prev</button>
+                <button id="nextBtn" onclick="changeEpisode('komik1', 1)">Next</button>
             </div>
         </div>
 
         <!-- Episode 2 Komik 1 -->
-        <div id="komik1_2" class="komik-content" style="display:none;">
+        <div id="komik1_episode2" class="komik-content" style="display:none;">
             <h3>Episode 2 - Komik 1</h3>
             <img src="e2001.jpg" alt="Komik e2" />
             <img src="e2002.jpg" alt="Komik e2" />
