@@ -52,6 +52,13 @@ nav a:hover {
     height: auto;
     border-radius: 5px;
 }
+.komik-content img {
+  width: 100%; /* Agar gambar lebar penuh */
+  height: auto; /* Sesuaikan tinggi dengan lebar */
+  margin-top: 20px;
+  border: 1px solid #ddd; /* Tambahkan border jika ingin */
+}
+
 footer {
     text-align: center;
     padding: 15px;
