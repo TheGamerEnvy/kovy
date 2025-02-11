@@ -183,13 +183,25 @@
         <!-- Episode 2 Komik 1 -->
         <div id="komik2" class="komik-content" style="display:none;">
             <h3>Episode 2 - Komik 1</h3>
-            <img src="001a.jpg" alt="Komik 2 Besar" />
-            <img src="010b.jpg" alt="Komik 2 Besar" />
-            <img src="010c.jpg" alt="Komik 2 Besar" />
+            <img src="001a.jpg" alt="Komik e2" />
+            <img src="010b.jpg" alt="Komik e2" />
+            <img src="010c.jpg" alt="Komik e2" />
             <!-- Gambar episode 2 lainnya -->
             <div class="navigation">
                 <button id="prevBtn2" onclick="changeEpisode(-1)" disabled>Previous</button>
                 <button id="nextBtn2" onclick="changeEpisode(1)">Next</button>
+            </div>
+
+        <!-- Episode 3 Komik 1 -->
+        <div id="komik3" class="komik-content" style="display:none;">
+            <h3>Episode 3 - Komik 1</h3>
+            <img src="020a.jpg" alt="Komik e3" />
+            <img src="020b.jpg" alt="Komik e3" />
+            <img src="020c.jpg" alt="Komik e3" />
+            <!-- Gambar episode 3 lainnya -->
+            <div class="navigation">
+                <button id="prevBtn3" onclick="changeEpisode(-1)" disabled>Previous</button>
+                <button id="nextBtn3" onclick="changeEpisode(1)">Next</button>
             </div>
 </div>
             
@@ -265,6 +277,13 @@ function updateNavigationButtons() {
     // Mengaktifkan atau menonaktifkan tombol Next/Previous
     document.getElementById('prevBtn').disabled = currentEpisode === 1;
     document.getElementById('nextBtn').disabled = currentEpisode === totalEpisodes;
+
+    document.getElementById('prevBtn2').disabled = currentEpisode === 1;
+    document.getElementById('nextBtn2').disabled = currentEpisode === totalEpisodes;
+
+    document.getElementById('prevBtn3').disabled = currentEpisode === 1;
+    document.getElementById('nextBtn3').disabled = currentEpisode === totalEpisodes;
+}
 }
 
 // Panggil showKomik untuk episode pertama saat halaman dimuat
