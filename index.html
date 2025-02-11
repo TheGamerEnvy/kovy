@@ -4,8 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komik Envy</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <style>
+        /* CSS langsung disini */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .comic {
+            cursor: pointer;
+        }
+
+        .comic img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .comic img:hover {
+            transform: scale(1.1);
+        }
+
+        .komik-content {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .komik-content img {
+            width: 80%;
+            max-width: 600px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -53,5 +128,22 @@
     <footer>
         <p>&copy; 2025 Komik Envy - Semua Hak Dilindungi</p>
     </footer>
+
+    <script>
+        // JavaScript langsung disini
+        function showKomik(komikId) {
+            // Sembunyikan semua komik
+            var komikContents = document.querySelectorAll('.komik-content');
+            komikContents.forEach(function(komik) {
+                komik.style.display = 'none';
+            });
+
+            // Tampilkan komik yang dipilih
+            var selectedKomik = document.getElementById(komikId);
+            if (selectedKomik) {
+                selectedKomik.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
