@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komik Envy</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -52,15 +53,5 @@
     <footer>
         <p>&copy; 2025 Komik Envy - Semua Hak Dilindungi</p>
     </footer>
-    <script>
-        function showKomik(komikId) {
-            var komikContents = document.querySelectorAll('.komik-content');
-            komikContents.forEach(function(komik) {
-                komik.style.display = 'none';
-            });
-            var selectedKomik = document.getElementById(komikId);
-            selectedKomik.style.display = 'block';
-        }
-    </script>
 </body>
 </html>
