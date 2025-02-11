@@ -73,6 +73,25 @@
             max-width: 600px;
         }
 
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+
         footer {
             background-color: #333;
             color: white;
@@ -154,7 +173,12 @@
             <img src="025.jpg" alt="Komik 1 Besar" />
             <img src="026.jpg" alt="Komik 1 Besar" />
             <img src="027.jpg" alt="Komik 1 Besar" />
-            <img src="028.jpg" alt="Komik 1 Besar" />       
+            <img src="028.jpg" alt="Komik 1 Besar" />  
+
+            <div class="navigation">
+                <button id="prevBtn" onclick="changeEpisode(-1)" disabled>Previous</button>
+                <button id="nextBtn" onclick="changeEpisode(1)">Next</button>
+            </div>
             
         </div>
         <!-- Episode 1 Komik 2 -->
@@ -195,6 +219,44 @@
                 selectedKomik.style.display = 'block';
             }
         }
+        let currentEpisode = 1;
+const totalEpisodes = 3; // Total episode, ganti sesuai dengan jumlah episode yang ada
+
+function showKomik(episodeId) {
+    // Sembunyikan semua komik
+    var komikContents = document.querySelectorAll('.komik-content');
+    komikContents.forEach(function(komik) {
+        komik.style.display = 'none';
+    });
+
+    // Tampilkan komik yang dipilih
+    var selectedKomik = document.getElementById(episodeId);
+    if (selectedKomik) {
+        selectedKomik.style.display = 'block';
+    }
+
+    updateNavigationButtons();
+}
+
+function changeEpisode(direction) {
+    // Update episode saat tombol Next atau Previous ditekan
+    currentEpisode += direction;
+
+    if (currentEpisode < 1) currentEpisode = 1; // Episode pertama tidak bisa kurang dari 1
+    if (currentEpisode > totalEpisodes) currentEpisode = totalEpisodes; // Episode terakhir tidak bisa lebih dari total
+
+    showKomik('komik' + currentEpisode);
+}
+
+function updateNavigationButtons() {
+    // Mengaktifkan atau menonaktifkan tombol Next/Previous
+    document.getElementById('prevBtn').disabled = currentEpisode === 1;
+    document.getElementById('nextBtn').disabled = currentEpisode === totalEpisodes;
+}
+
+// Panggil showKomik untuk episode pertama saat halaman dimuat
+showKomik('komik1');
+
     </script>
 </body>
 </html>
